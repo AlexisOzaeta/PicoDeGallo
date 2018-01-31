@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pico.de.gallo.view.NuevoMiembroController">
+    <stylesheets>
+        <URL value="@nuevomiembro.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="paneDatos" layoutX="39.0" layoutY="69.0" prefHeight="428.0" prefWidth="267.0" stylesheets="@nuevomiembro.css">
+         <children>
+            <JFXTextField id="txtCampos" fx:id="txtNombres" focusColor="#0d3781" focusTraversable="false" labelFloat="true" layoutX="50.0" layoutY="70.0" onKeyTyped="#typeTextField" promptText="Nombre(s)" stylesheets="@nuevomiembro.css" unFocusColor="#363434" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="70.0" />
+            <JFXTextField id="txtCampos" fx:id="txtApellidos" focusColor="#0d3781" focusTraversable="false" labelFloat="true" layoutX="15.0" layoutY="123.0" maxWidth="173.0" minWidth="173.0" onKeyTyped="#typeTextField" prefHeight="31.0" prefWidth="173.0" promptText="Apellido(s)" stylesheets="@nuevomiembro.css" unFocusColor="#363434" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="123.0" />
+            <JFXTextField id="txtCampos" fx:id="txtCelular" focusColor="#0d3781" focusTraversable="false" labelFloat="true" layoutX="40.0" layoutY="183.0" maxWidth="173.0" minWidth="173.0" onKeyTyped="#typeTextField" prefHeight="31.0" prefWidth="173.0" promptText="Celular" stylesheets="@nuevomiembro.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="176.0" />
+            <Label id="lblCampos" layoutX="26.0" layoutY="212.0" stylesheets="@nuevomiembro.css" text="Genero" AnchorPane.leftAnchor="23.0" />
+            <JFXCheckBox id="checkBox" fx:id="CheckHombre" checkedColor="#2497ee" focusTraversable="false" layoutX="14.0" layoutY="241.0" onAction="#clickCheckHombre" stylesheets="@nuevomiembro.css" text="Hombre">
+               <font>
+                  <Font name="Roboto Regular" size="12.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox id="checkBox" fx:id="CheckMujer" checkedColor="#ee49eb" focusTraversable="false" layoutX="100.0" layoutY="241.0" onAction="#clickCheckMujer" stylesheets="@nuevomiembro.css" text="Mujer">
+               <font>
+                  <Font name="Roboto Regular" size="12.0" />
+               </font>
+            </JFXCheckBox>
+            <Label id="lblCampos" layoutX="23.0" layoutY="272.0" stylesheets="@nuevomiembro.css" text="Fecha de Nacimiento" textFill="#4d4d4d" />
+            <JFXDatePicker id="txtCalendario" fx:id="DPfechaNac" defaultColor="#0d3781" editable="false" focusTraversable="false" layoutX="16.0" layoutY="287.0" onAction="#clickDatePicker" prefHeight="31.0" prefWidth="187.0" stylesheets="@nuevomiembro.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" />
+            <AnchorPane id="paneTitulo" layoutX="28.0" layoutY="-27.0" prefHeight="55.0" prefWidth="218.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+               <children>
+                  <Label id="titulo" alignment="CENTER" focusTraversable="false" layoutX="81.0" layoutY="18.0" stylesheets="@nuevomiembro.css" text="Datos Personales" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <JFXButton id="clearButton" fx:id="btnLimpiarDatos" focusTraversable="false" layoutX="152.0" layoutY="361.0" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Limpiar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="paneDatos" layoutX="341.0" layoutY="70.0" prefHeight="250.0" prefWidth="321.0">
+         <children>
+            <AnchorPane id="paneTitulo" layoutX="52.0" layoutY="-27.0" prefHeight="55.0" prefWidth="218.0" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="52.0">
+               <children>
+                  <Label id="titulo" alignment="CENTER" focusTraversable="false" layoutX="81.0" layoutY="18.0" stylesheets="@nuevomiembro.css" text="Servicio" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <JFXButton id="clearButton" fx:id="btnLimpiarServicio" focusTraversable="false" layoutX="212.0" layoutY="205.0" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Limpiar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Label id="lblCampos" layoutX="23.0" layoutY="60.0" stylesheets="@nuevomiembro.css" text="Tipo" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="65.0" />
+            <Label id="lblCampos" layoutX="27.0" layoutY="110.0" stylesheets="@nuevomiembro.css" text="Horario" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="110.0" />
+            <Label id="lblCampos" layoutX="21.0" layoutY="153.0" stylesheets="@nuevomiembro.css" text="Pago" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="160.0" />
+            <Label id="lblCampos" layoutX="23.0" layoutY="205.0" stylesheets="@nuevomiembro.css" text="Meses" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="205.0" />
+            <JFXComboBox id="comboBox" fx:id="CBtipo" focusTraversable="false" layoutX="84.0" layoutY="65.0" prefHeight="25.0" prefWidth="217.0" promptText="--Selecciona--" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
+            <JFXComboBox id="comboBox" fx:id="CBhorario" focusTraversable="false" layoutX="84.0" layoutY="110.0" prefHeight="25.0" prefWidth="217.0" promptText="--Selecciona--" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="105.0" />
+            <JFXRadioButton id="radioButton" fx:id="CheckPagoCompleto" focusTraversable="false" layoutX="71.0" layoutY="159.0" onAction="#clickCheckPagoCompleto" stylesheets="@nuevomiembro.css" text="Completo" AnchorPane.topAnchor="160.0" />
+            <JFXRadioButton id="radioButton" fx:id="CheckAbono" focusTraversable="false" layoutX="170.0" layoutY="159.0" onAction="#clickCheckAbono" stylesheets="@nuevomiembro.css" text="\$" AnchorPane.topAnchor="160.0" />
+            <JFXTextField id="txtCampos" fx:id="txtAbono" disable="true" focusColor="#0d3781" focusTraversable="false" labelFloat="true" layoutX="222.0" layoutY="152.0" maxWidth="79.0" minWidth="66.0" prefHeight="34.0" prefWidth="79.0" promptText="Abono" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="155.0" />
+            <Spinner id="spinnerMeses" fx:id="SpinnerMeses" focusTraversable="false" layoutX="84.0" layoutY="200.0" onMouseClicked="#clickSpinner" prefHeight="25.0" prefWidth="66.0" stylesheets="@nuevomiembro.css" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="paneDatos" layoutX="341.0" layoutY="335.0" prefHeight="163.0" prefWidth="321.0">
+         <children>
+            <JFXProgressBar id="barraProgreso" fx:id="ProgressBar" focusTraversable="false" layoutX="75.0" layoutY="80.0" prefHeight="15.0" prefWidth="281.0" progress="0.0" stylesheets="@nuevomiembro.css" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="33.0">
+               <styleClass>
+                  <String fx:value="bar" />
+                  <String fx:value="jfx-progress-bar" />
+                  <String fx:value="track" />
+               </styleClass>
+            </JFXProgressBar>
+            <Label id="lblPorcentaje" fx:id="ProgressText" layoutX="136.0" layoutY="65.0" stylesheets="@nuevomiembro.css" text="0% Completo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+            <HBox alignment="CENTER" fillHeight="false" layoutX="101.0" layoutY="119.0" maxHeight="35.0" prefHeight="15.0" prefWidth="235.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <children>
+                  <JFXButton id="cancelButton" fx:id="btnCancelar" focusTraversable="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Cancelar" />
+                  <JFXButton id="saveButton" fx:id="btnGuardar" disable="true" focusTraversable="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Guardar" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

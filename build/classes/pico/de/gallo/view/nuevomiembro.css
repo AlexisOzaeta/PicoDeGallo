@@ -1,0 +1,104 @@
+/*******************************************************************************
+*                                                                              *
+*                             Barra de Progeso                                 *
+*                                                                              *
+*******************************************************************************/
+.jfx-progress-bar > .bar {
+    -fx-background-color: green;
+}
+
+.jfx-progress-bar > .track, .jfx-progress-bar > .bar {
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+}
+
+.jfx-progress-bar > .track {
+    -fx-background-color: #E0E0E0;
+}
+/******************************************************************************/
+#paneDatos {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(three-pass-box, gray, 7, 0, 0, 0);
+}
+
+#paneTitulo {
+    -fx-background-color: #0c38d7;
+    -fx-background-radius: 7;
+    -fx-opacity: 0.75;
+}
+
+#titulo {
+    -fx-text-fill: #ffffff;
+    -fx-font: 18px "Roboto Bk";
+}
+#lblPorcentaje {
+    -fx-text-fill: #0d3781;
+    -fx-font: 16px "Roboto Bk";
+    -fx-alignment: CENTER;
+}
+#lblCampos {
+    -fx-text-fill: #8a8a8a;
+    -fx-font: 12px "Roboto Bk";
+}
+
+#txtCampos {
+    -fx-font: 14px "Roboto";
+    -fx-cursor: text;
+}
+
+#txtCalendario {
+    -fx-font: 14px "Roboto";
+    -fx-cursor: hand;
+}
+
+#barraProgreso {
+    -fx-background-color: #0c38d7;
+    -fx-background-radius: 6;
+}
+
+#checkBox {
+    -fx-cursor: hand;
+}
+
+#clearButton {
+    -fx-font: 13px "Roboto Bk";
+    -fx-text-fill: white;
+    -fx-background-color: orange;
+    -fx-cursor: hand;
+    -fx-graphic: url(../img/icono-btn-clear1.png);
+    -fx-effect: dropshadow(three-pass-box, gray, 3, 0, 0, 3);
+}
+
+#saveButton {
+    -fx-font: 13px "Roboto Bk";
+    -fx-text-fill: white;
+    -fx-background-color: green;
+    -fx-cursor: hand;
+    -fx-graphic: url(../img/icono-btn-save.png);
+    -fx-effect: dropshadow(three-pass-box, gray, 3, 0, 0, 3);
+} 
+
+#cancelButton {
+    -fx-font: 13px "Roboto Bk";
+    -fx-text-fill: white;
+    -fx-background-color: #bc0707; 
+    -fx-cursor: hand;
+    -fx-graphic: url(../img/icono-btn-cancel.png);
+    -fx-effect: dropshadow(three-pass-box, gray, 3, 0, 0, 3);
+}
+
+#radioButton {
+    -fx-selected-color: #0d3781;
+    -fx-cursor: hand;
+}
+
+#comboBox {
+    -fx-font: 14px "Roboto";
+    -fx-cursor: hand;
+}
+
+#spinnerMeses {
+    -fx-body-color: white;
+    -fx-cursor: hand;
+}

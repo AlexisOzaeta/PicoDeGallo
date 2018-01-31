@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pico.de.gallo.view.MenuPrincipalController">
+   <left>
+      <Pane id="PaneButtons" focusTraversable="true" prefHeight="400.0" prefWidth="200.0" styleClass="PaneButtons" stylesheets="@molcajete.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="Image" prefHeight="200.0" prefWidth="200.0" />
+            <Button id="ButtonNew" fx:id="btnNuevo" focusTraversable="false" layoutY="200.0" mnemonicParsing="false" onAction="#habersijalaswey" prefHeight="50.0" prefWidth="200.0" styleClass="ButtonMenu" stylesheets="@molcajete.css" text=" Nuevo Miembro" />
+            <Button id="ButtonRen" fx:id="btnRenovar" focusTraversable="false" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="ButtonMenu" stylesheets="@molcajete.css" text=" Renovar Membresia" />
+            <Button id="ButtonMiem" fx:id="btnMiembros" focusTraversable="false" layoutY="300.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="ButtonMenu" stylesheets="@molcajete.css" text=" Miembros" />
+            <Button id="ButtonEsta" fx:id="btnEstadisticas" focusTraversable="false" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="ButtonMenu" stylesheets="@molcajete.css" text=" Estádisticas" />
+            <Button id="ButtonConf" fx:id="btnConfiguracion" focusTraversable="false" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="ButtonMenu" stylesheets="@molcajete.css" text=" Configuración" />
+            <Button id="ButtonAcerca" fx:id="btnAcercaDe" focusTraversable="false" layoutY="450.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" styleClass="ButtonMenu" stylesheets="@molcajete.css" text=" Acerca de" />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>

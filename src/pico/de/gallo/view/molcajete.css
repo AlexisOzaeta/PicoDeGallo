@@ -1,0 +1,45 @@
+    .ButtonMenu {
+        -fx-font: 13px "Roboto";
+        -fx-text-fill: #ffffff;
+        -fx-background-color: #0d3781;
+        -fx-background-radius: 0;
+        -fx-alignment: BASELINE_LEFT;
+    }
+    
+    .ButtonMenu:hover {
+        -fx-font: 15px "Roboto";
+        -fx-cursor: hand;
+        -fx-text-fill: #ffffff;
+        -fx-background-color: #0c2f6d;
+        -fx-background-radius: 0;
+    }
+    
+    #ButtonNew {
+        -fx-graphic: url(../img/icono-nuevo.png);
+    }
+    
+    #ButtonRen {
+        -fx-graphic: url(../img/icono-renovar.png);
+    }
+    
+    #ButtonMiem {
+        -fx-graphic: url(../img/icono-miembros.png);
+    }
+    
+    #ButtonEsta {
+        -fx-graphic: url(../img/icono-estadisticas.png);
+    }
+    
+    #ButtonConf {
+        -fx-graphic: url(../img/icono-configuracion.png);
+    }
+    
+    #ButtonAcerca {
+        -fx-graphic: url(../img/icono-info.png);
+    }
+    
+    .PaneButtons{
+        -fx-background-color: #0d3781;
+        -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+    }
+    
