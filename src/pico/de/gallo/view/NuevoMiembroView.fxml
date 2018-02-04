@@ -43,7 +43,7 @@
                   <Label id="titulo" alignment="CENTER" focusTraversable="false" layoutX="81.0" layoutY="18.0" stylesheets="@nuevomiembro.css" text="Datos Personales" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
-            <JFXButton id="clearButton" fx:id="btnLimpiarDatos" focusTraversable="false" layoutX="152.0" layoutY="361.0" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Limpiar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <JFXButton id="clearButton" fx:id="btnLimpiarDatos" focusTraversable="false" layoutX="152.0" layoutY="361.0" onAction="#clickBtnLimparDatos" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Limpiar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="paneDatos" layoutX="341.0" layoutY="70.0" prefHeight="250.0" prefWidth="321.0">
@@ -53,17 +53,17 @@
                   <Label id="titulo" alignment="CENTER" focusTraversable="false" layoutX="81.0" layoutY="18.0" stylesheets="@nuevomiembro.css" text="Servicio" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
-            <JFXButton id="clearButton" fx:id="btnLimpiarServicio" focusTraversable="false" layoutX="212.0" layoutY="205.0" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Limpiar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <JFXButton id="clearButton" fx:id="btnLimpiarServicio" focusTraversable="false" layoutX="212.0" layoutY="205.0" onAction="#clickBtnLimparServicio" prefHeight="35.0" ripplerFill="#9a1d1d" stylesheets="@nuevomiembro.css" text=" Limpiar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
             <Label id="lblCampos" layoutX="23.0" layoutY="60.0" stylesheets="@nuevomiembro.css" text="Tipo" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="65.0" />
             <Label id="lblCampos" layoutX="27.0" layoutY="110.0" stylesheets="@nuevomiembro.css" text="Horario" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="110.0" />
             <Label id="lblCampos" layoutX="21.0" layoutY="153.0" stylesheets="@nuevomiembro.css" text="Pago" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="160.0" />
             <Label id="lblCampos" layoutX="23.0" layoutY="205.0" stylesheets="@nuevomiembro.css" text="Meses" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="205.0" />
-            <JFXComboBox id="comboBox" fx:id="CBtipo" focusTraversable="false" layoutX="84.0" layoutY="65.0" prefHeight="25.0" prefWidth="217.0" promptText="--Selecciona--" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
-            <JFXComboBox id="comboBox" fx:id="CBhorario" focusTraversable="false" layoutX="84.0" layoutY="110.0" prefHeight="25.0" prefWidth="217.0" promptText="--Selecciona--" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="105.0" />
+            <JFXComboBox id="comboBox" fx:id="CBtipo" focusTraversable="false" layoutX="84.0" layoutY="65.0" onAction="#clickComponent" prefHeight="25.0" prefWidth="217.0" promptText="--Selecciona--" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
+            <JFXComboBox id="comboBox" fx:id="CBhorario" focusTraversable="false" layoutX="84.0" layoutY="110.0" onAction="#clickComponent" prefHeight="25.0" prefWidth="217.0" promptText="--Selecciona--" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="105.0" />
             <JFXRadioButton id="radioButton" fx:id="CheckPagoCompleto" focusTraversable="false" layoutX="71.0" layoutY="159.0" onAction="#clickCheckPagoCompleto" stylesheets="@nuevomiembro.css" text="Completo" AnchorPane.topAnchor="160.0" />
             <JFXRadioButton id="radioButton" fx:id="CheckAbono" focusTraversable="false" layoutX="170.0" layoutY="159.0" onAction="#clickCheckAbono" stylesheets="@nuevomiembro.css" text="\$" AnchorPane.topAnchor="160.0" />
-            <JFXTextField id="txtCampos" fx:id="txtAbono" disable="true" focusColor="#0d3781" focusTraversable="false" labelFloat="true" layoutX="222.0" layoutY="152.0" maxWidth="79.0" minWidth="66.0" prefHeight="34.0" prefWidth="79.0" promptText="Abono" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="155.0" />
-            <Spinner id="spinnerMeses" fx:id="SpinnerMeses" focusTraversable="false" layoutX="84.0" layoutY="200.0" onMouseClicked="#clickSpinner" prefHeight="25.0" prefWidth="66.0" stylesheets="@nuevomiembro.css" />
+            <JFXTextField id="txtCampos" fx:id="txtAbono" disable="true" focusColor="#0d3781" focusTraversable="false" labelFloat="true" layoutX="222.0" layoutY="152.0" maxWidth="79.0" minWidth="66.0" onKeyTyped="#typeTextField" prefHeight="34.0" prefWidth="79.0" promptText="Abono" stylesheets="@nuevomiembro.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="155.0" />
+            <Spinner id="spinnerMeses" fx:id="SpinnerMeses" focusTraversable="false" layoutX="84.0" layoutY="200.0" onMouseClicked="#clickComponent" prefHeight="25.0" prefWidth="66.0" stylesheets="@nuevomiembro.css" />
          </children>
       </AnchorPane>
       <AnchorPane id="paneDatos" layoutX="341.0" layoutY="335.0" prefHeight="163.0" prefWidth="321.0">

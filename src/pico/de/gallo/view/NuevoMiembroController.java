@@ -11,11 +11,13 @@ import com.jfoenix.validation.NumberValidator;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.input.KeyEvent;
 
 public class NuevoMiembroController implements Initializable {
     private final int[] campos = new int[9];
@@ -74,12 +76,12 @@ public class NuevoMiembroController implements Initializable {
     @FXML
     private void typeTextField(){verificar();}
     /**
-     * Método para el spinner de la cantidad de meses.
+     * Método para los componentes que se verifican con click solamente.
      * 
      * Manda a llamar al metodo verificar().
      */
     @FXML
-    private void clickSpinner(){verificar();}
+    private void clickComponent(){verificar();}
     /**
      * Método para el datePicker.
      * 
@@ -88,13 +90,14 @@ public class NuevoMiembroController implements Initializable {
      */
     @FXML
     private void clickDatePicker(){
-        LocalDate fechaActual = LocalDate.now();
-        LocalDate fechaSeleccionada = DPfechaNac.getValue();
-        if(fechaActual.isBefore(fechaSeleccionada)){
-            System.out.println("¿Estás intentando registrar a alguien que viene del futuro?");
-            DPfechaNac.getEditor().clear();
-        }else{
-            verificar();
+        if(DPfechaNac.getValue() != null){
+            LocalDate fechaActual = LocalDate.now();
+            LocalDate fechaSeleccionada = DPfechaNac.getValue();
+            if(fechaActual.isBefore(fechaSeleccionada)){
+                System.out.println("¿Estás intentando registrar a alguien que viene del futuro?");
+                DPfechaNac.setValue(null);
+            }else
+                verificar();
         }
     }
     /**
@@ -127,50 +130,123 @@ public class NuevoMiembroController implements Initializable {
      * Actualiza la barra de progreso.
      */
     private void verificar(){
-        //Campo Nombre
+        //Field Name
         if("".equals(txtNombres.getText())) campos[0] = 0;
         else campos[0] = 12;
-        //Campo Apellido
+        //Field Last Name
         if("".equals(txtApellidos.getText())) campos[1] = 0;
         else campos[1] = 12;
-        //Campo Celular
+        //Field Number Cellphone
         if("".equals(txtCelular.getText())) campos[2] = 0;
         else campos[2] = 10;
-        //Campo Genero
+        //Field Gender
         if(CheckHombre.isSelected() == false && CheckMujer.isSelected() == false) campos[3] = 0;
         else campos[3] = 10;
-        //Campo Fecha
+        //Field DateBird
         if(DPfechaNac.getValue() == null) campos[4] = 0;
         else campos[4] = 16;
-        //Campo Tipo
+        //Field Type
         if(CBtipo.getValue() == null) campos[5] = 0;
         else campos[5] = 10;
-        //Campo Horario
+        //Field Schedule
         if(CBhorario.getValue() == null) campos[6] = 0;
         else campos[6] = 10;
-        //Campo Pago
+        //Field Payment
         if(CheckAbono.isSelected() == false && CheckPagoCompleto.isSelected() == false) campos[7] = 0;
-        else campos[7] = 10;
-        //Campo Meses
+        else{
+            if(CheckAbono.isSelected() == true){
+                campos[7] = 5;
+                if(!"".equals(txtAbono.getText())) campos[7] = 10;
+            }else
+                campos[7] = 10;
+        }
+        //Field Months
         if(SpinnerMeses.getValue() == 0) campos[8] = 0;
         else campos[8] = 10;
-        //Calculamos el porcentaje de la barra de progreso                    
+        //Calculate the percentage of the progress bar                  
         int tot = 0;
         for(int i = 0; i < 9; i++)
             tot += campos[i];
         ProgressText.setText(tot+"% Completo");
         double progreso = (double) tot / 100;
         ProgressBar.setProgress(progreso);
+        //Verify if the progress bar is full to show btnGuardar
+        if(ProgressBar.getProgress() == 1)
+            btnGuardar.setDisable(false);
+        else
+            btnGuardar.setDisable(true);
+    }
+    /**
+     * Método encargado de vaciar todo los campos de la sección Datos Personales.
+     */
+    @FXML
+    private void clickBtnLimparDatos(){
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtCelular.setText("");
+        DPfechaNac.setValue(null);
+        CheckHombre.setSelected(false);
+        CheckMujer.setSelected(false);
+        verificar();
+    }
+    /**
+     * Método encargado de vaciar todo los campos de la sección Servicio.
+     */
+    @FXML
+    private void clickBtnLimparServicio(){
+        CBtipo.getSelectionModel().select(-1);
+        CBhorario.getSelectionModel().select(-1);
+        CheckPagoCompleto.setSelected(false);
+        CheckAbono.setSelected(false);
+        txtAbono.setText("");
+        txtAbono.setDisable(false);
+        SpinnerMeses.getValueFactory().setValue(0);
+        verificar();
     }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initFilters();
+        CBtipo.getItems().add("h");
+        CBhorario.getItems().add("h");
+    }
+    
+    private void initFilters(){
+        //Set month range
         SpinnerValueFactory svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 12);
         SpinnerMeses.setValueFactory(svf);
-        NumberValidator validator = new NumberValidator();
-        validator.setMessage("Value must be a number");
-        txtCelular.getValidators().add(validator);
+        //Set KeyEvent to only read numbers in txtCelular
+        txtCelular.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent evt){
+                char c = evt.getCharacter().charAt(0);
+                if(c < '0' || c > '9') evt.consume();
+            }
+        });
+        //Set KeyEvent to only read numbers in txtAbono
+        txtAbono.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent evt){
+                char c = evt.getCharacter().charAt(0);
+                if(c < '0' || c > '9') evt.consume();
+            }
+        });
+        //Set KeyEvent to only read letters in txtNombres
+        txtNombres.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent evt){
+                char c = evt.getCharacter().charAt(0);
+                if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == 'ñ' && c == 'Ñ') || (c >= ' ' && c <= ' ')){ }else evt.consume();
+            }
+        });
+        //Set KeyEvent to only read letters in txtApellidos
+        txtNombres.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent evt){
+                char c = evt.getCharacter().charAt(0);
+                if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == 'ñ' && c == 'Ñ') || (c >= ' ' && c <= ' ')){ }else evt.consume();
+            }
+        });
     }
-       
 }
 
